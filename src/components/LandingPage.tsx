@@ -357,8 +357,8 @@ export function LandingPage({ onSignInClick }: LandingPageProps) {
       <footer className="bg-[#121A16] text-slate-400 py-12 px-6 lg:px-16 border-t border-slate-950">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
-              <GraduationCap className="w-5 h-5" />
+            <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-4 shadow-lg p-2">
+                <img src={logo} alt="AniSkolar logo" className="w-full h-full object-contain" />
             </div>
             <div>
               <span className="text-sm font-black text-white tracking-widest uppercase block">AniSkolar</span>
