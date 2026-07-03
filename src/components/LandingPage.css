@@ -1,0 +1,4 @@
+/* Styles specific to LandingPage.
+   Currently all LandingPage styling is handled via Tailwind utility
+   classes directly in the component, so there's nothing custom here yet.
+   Add any Landing-only rules to this file as they come up. */
