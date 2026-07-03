@@ -122,7 +122,7 @@ export function LandingPage({ onSignInClick }: LandingPageProps) {
         className="relative overflow-hidden px-6 lg:px-16 py-24 lg:py-36 bg-cover bg-center"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/55 to-[#F8FAF8]" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/55 to-[#F8FAF8]" />
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
           <div className="lg:col-span-7 space-y-8 text-center lg:text-left">
@@ -140,7 +140,7 @@ export function LandingPage({ onSignInClick }: LandingPageProps) {
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button 
                 onClick={onSignInClick}
-                className="flex items-center justify-center gap-3 px-8 py-4 bg-primary text-white font-black rounded-2xl hover:bg-[#005c31] transition-all shadow-xl hover:shadow-primary/20 hover:translate-y-[-1px] active:scale-95 text-base"
+                className="flex items-center justify-center gap-3 px-8 py-4 bg-primary text-white font-black rounded-2xl hover:bg-[#005c31] transition-all shadow-xl hover:shadow-primary/20 hover:-translate-y-px active:scale-95 text-base"
               >
                 Access Portal
                 <ArrowRight className="w-5 h-5" />
@@ -159,7 +159,7 @@ export function LandingPage({ onSignInClick }: LandingPageProps) {
       {/* Impact Statistics */}
       <section id="stats" className="max-w-6xl mx-auto px-6 lg:px-16 py-12">
         <div className="bg-primary text-white rounded-[2.5rem] p-8 lg:p-14 grid grid-cols-2 lg:grid-cols-4 gap-8 shadow-2xl relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent pointer-events-none" />
           {stats.map((stat, i) => (
             <div key={i} className="space-y-2 relative z-10 border-r border-white/10 last:border-0 pr-4">
               <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-emerald-200">
@@ -344,7 +344,7 @@ export function LandingPage({ onSignInClick }: LandingPageProps) {
           <div className="flex justify-center pt-2">
             <button 
               onClick={onSignInClick}
-              className="flex items-center gap-3 px-8 py-4 bg-white text-primary font-black rounded-2xl hover:bg-emerald-50 transition-all shadow-xl hover:translate-y-[-1px] text-base"
+              className="flex items-center gap-3 px-8 py-4 bg-white text-primary font-black rounded-2xl hover:bg-emerald-50 transition-all shadow-xl hover:-translate-y-px text-base"
             >
               Sign In to Portal
               <ArrowRight className="w-5 h-5" />
