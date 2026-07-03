@@ -129,12 +129,12 @@ export function LandingPage({ onSignInClick }: LandingPageProps) {
             
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.1]">
-              Sowing Dreams, <br className="hidden sm:inline" />
-              <span className="text-emerald-300">Harvesting Success</span>
+              Wala pa pala tayo, <br className="hidden sm:inline" />
+              <span className="text-emerald-300">Slogan for this</span>
             </h1>
 
             <p className="text-base sm:text-lg text-slate-100 font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-              Welcome to <strong>AniSkolar</strong>, the official DLSU-Dasmariñas student scholarship portal. Streamlining application filings, duty log verification, evaluation checks, and exclusive grant activations for our outstanding scholars.
+              Welcome to <strong>AniSkolar</strong>, ... blah, blah, blah. Proper name. Place name. Backstory stuff...
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
