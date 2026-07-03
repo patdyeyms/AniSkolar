@@ -12,10 +12,22 @@ import {
 } from 'lucide-react';
 import { cn } from '../lib/utils';
 import './LoginPage.css';
+import logo from '../assets/logo.png';
 
 interface LoginPageProps {
   onBackToLanding: () => void;
   onLoginSuccess: (email: string) => void;
+}
+
+function MicrosoftIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="9" height="9" fill="#F25022" />
+      <rect x="11" y="1" width="9" height="9" fill="#7FBA00" />
+      <rect x="1" y="11" width="9" height="9" fill="#00A4EF" />
+      <rect x="11" y="11" width="9" height="9" fill="#FFB900" />
+    </svg>
+  );
 }
 
 export function LoginPage({ onBackToLanding, onLoginSuccess }: LoginPageProps) {
@@ -43,6 +55,13 @@ export function LoginPage({ onBackToLanding, onLoginSuccess }: LoginPageProps) {
     setEmail(demoEmail);
     setPassword('scholar123');
     setErrorMsg('');
+  };
+
+  const handleMicrosoftSignIn = () => {
+    setErrorMsg('');
+    setEmail('scholar@dlsud.edu.ph');
+    setIsAuthenticating(true);
+    setAuthStep(0);
   };
 
   const handleFormSubmit = (e: FormEvent) => {
@@ -112,29 +131,17 @@ export function LoginPage({ onBackToLanding, onLoginSuccess }: LoginPageProps) {
             </button>
 
             <div className="pt-8">
-              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-4 text-primary shadow-lg">
-                <GraduationCap className="w-8 h-8" />
+              <div className="w-14 h-14 bg-white rounded-2xl flex items-center justify-center mb-4 shadow-lg p-2">
+                <img src={logo} alt="AniSkolar logo" className="w-full h-full object-contain" />
               </div>
               <h2 className="text-3xl font-black tracking-tight">AniSkolar Portal</h2>
               <p className="text-emerald-200/80 text-sm font-medium leading-relaxed mt-2">
-                The institutional system for tracking scholars, logging services, and facilitating department evaluations.
+                Sign in to track your scholarship renewal and access your scholar portal.
               </p>
             </div>
           </div>
 
           <div className="space-y-6 relative z-10">
-            <div className="p-6 bg-white/5 border border-white/10 rounded-2xl space-y-3 backdrop-blur-sm">
-              <p className="text-xs italic text-emerald-100 font-medium">
-                "The harvest of tomorrow is in the seeds you sow today. Every hour logged, and every grade earned, secures your academic progress."
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-7 h-7 rounded-full bg-emerald-600 flex items-center justify-center text-[10px] font-black">SU</div>
-                <div>
-                  <p className="text-[10px] font-black leading-none">Scholarship Unit</p>
-                  <p className="text-[8px] text-emerald-300">DLSU-D Office of Admissions</p>
-                </div>
-              </div>
-            </div>
 
             <p className="text-[10px] text-emerald-300 font-bold tracking-widest uppercase">
               DE LA SALLE UNIVERSITY - DASMARIÑAS
@@ -193,8 +200,8 @@ export function LoginPage({ onBackToLanding, onLoginSuccess }: LoginPageProps) {
             
             {/* Header */}
             <div>
-              <div className="lg:hidden w-10 h-10 bg-primary/10 text-primary rounded-xl flex items-center justify-center mb-4">
-                <GraduationCap className="w-6 h-6" />
+              <div className="lg:hidden w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center mb-4 p-1.5">
+                <img src={logo} alt="AniSkolar logo" className="w-full h-full object-contain" />
               </div>
               <h1 className="text-3xl font-black text-slate-900 tracking-tight">
                 {isForgotPassword ? "Reset Password" : "Welcome Back"}
@@ -202,7 +209,7 @@ export function LoginPage({ onBackToLanding, onLoginSuccess }: LoginPageProps) {
               <p className="text-slate-400 text-sm font-medium mt-1 leading-relaxed">
                 {isForgotPassword 
                   ? "Enter your institutional email to receive recovery instructions." 
-                  : "Sign in to track your scholarship renewal obligations and grade evaluation scores."}
+                  : "Sign in to track your scholarship renewal and access your scholar portal."}
               </p>
             </div>
 
@@ -324,33 +331,23 @@ export function LoginPage({ onBackToLanding, onLoginSuccess }: LoginPageProps) {
                   Sign In
                 </button>
 
-                {/* Quick demo accounts */}
-                <div className="pt-6 border-t border-slate-100 space-y-3">
-                  <div className="flex items-center gap-1.5 text-xs font-black text-slate-400 uppercase tracking-wider">
-                    <Sparkles className="w-3.5 h-3.5 text-yellow-500" />
-                    Demo Scholar Credentials
-                  </div>
-                  
-                  <div className="grid grid-cols-2 gap-3">
-                    <button 
-                      type="button"
-                      onClick={() => handleDemoSignIn('pjameslauron@gmail.com')}
-                      className="p-3 border border-slate-100 hover:border-primary/20 hover:bg-slate-50 transition-all rounded-xl text-left space-y-1 group"
-                    >
-                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest group-hover:text-primary transition-colors">Scholar Email</p>
-                      <p className="text-xs font-black text-slate-700 truncate">pjameslauron@gmail.com</p>
-                    </button>
-
-                    <button 
-                      type="button"
-                      onClick={() => handleDemoSignIn('scholar@dlsud.edu.ph')}
-                      className="p-3 border border-slate-100 hover:border-primary/20 hover:bg-slate-50 transition-all rounded-xl text-left space-y-1 group"
-                    >
-                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest group-hover:text-primary transition-colors">Institutional</p>
-                      <p className="text-xs font-black text-slate-700 truncate">scholar@dlsud.edu.ph</p>
-                    </button>
-                  </div>
+                {/* Divider */}
+                <div className="flex items-center gap-3 pt-2">
+                  <div className="h-px flex-1 bg-slate-100" />
+                  <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Or continue with</span>
+                  <div className="h-px flex-1 bg-slate-100" />
                 </div>
+
+                {/* Microsoft Sign In */}
+                <button
+                  type="button"
+                  onClick={handleMicrosoftSignIn}
+                  className="w-full py-3.5 bg-white border border-slate-200 text-slate-700 font-black text-sm tracking-wide rounded-xl hover:bg-slate-50 hover:border-slate-300 transition-all shadow-sm active:scale-95 flex items-center justify-center gap-3"
+                >
+                  <MicrosoftIcon className="w-4 h-4" />
+                  Sign in with Microsoft
+                </button>
+
               </form>
             )}
 
